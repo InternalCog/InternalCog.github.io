@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Aaron Gonzales · aarongonzales.dev</title>
+      <meta name="description"
+         content="Building real solutions for real hard problems. Cloud infrastructure, CI/CD automation and cyber operations.">
+      <meta name="theme-color" content="#19180e">
+      <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link rel="stylesheet"
+         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&amp;display=swap">
+      <style>
+body{margin:0;background:#19180e}
+a{color:#dcdbd1;text-decoration:none}
+a:hover{color:#ffffff}
+a:focus-visible{outline:2px solid #e73d1d;outline-offset:4px}
+@keyframes hero-fade{from{opacity:0}to{opacity:1}}
+@keyframes hero-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.hero-machine{container-type:inline-size;animation:hero-fade 1.2s ease-out .25s both}
+.hero-outline{animation:hero-fade 1s ease-out .9s both}
+.hero-cursor{animation:hero-blink 1.1s steps(1) infinite}
+
+/* The headline types itself out: the word's box widens one character at a time and the cursor rides its edge. */
+.type-word{display:inline-block;vertical-align:top;overflow:hidden;white-space:nowrap;width:0;padding:.15em 0 .25em;margin:-.15em 0 -.25em;animation:type-word .9s steps(10) .3s forwards}
+@keyframes type-word{to{width:10ch}}
+
+/* The monitor: a live screen laid over the picture's own screen.
+   Timeline: dark until 1.6s, power-on flash, boot text 2.4s to 4s, deploy.py typed from 4.2s, run at 14.3s, done by 18.2s. */
+.crt{position:absolute;left:47.25%;top:55.71%;width:23.3%;height:23.66%;border-radius:4.5% / 4.8%;overflow:hidden;background:#100f09;color:#dcdbd1;font-size:5px;font-size:.665cqw;line-height:1.45;font-weight:500;text-shadow:0 0 .3cqw rgba(220,219,209,.45)}
+.crt-lit,.crt-boot,.crt-code,.crt-flash,.crt-scan{position:absolute;top:0;right:0;bottom:0;left:0}
+.crt-lit{background:radial-gradient(ellipse at 50% 45%,#26261b 0%,#17160d 78%);opacity:0;animation:crt-show .4s ease-out 1.9s forwards}
+.crt-boot,.crt-code{padding:1cqw 1.4cqw}
+.crt-boot{animation:crt-hide 1ms linear 4s forwards}
+.crt-boot span{display:block;width:max-content;white-space:nowrap;opacity:0}
+.crt-b1{animation:crt-show 1ms linear 2.4s forwards}
+.crt-b2{animation:crt-show 1ms linear 2.75s forwards}
+.crt-b3{animation:crt-show 1ms linear 3.1s forwards}
+.crt-b4{animation:crt-show 1ms linear 3.45s forwards}
+/* Each line is sized to its own text (max-content, never wraps) and revealed by growing max-width one character
+   per step. When a line finishes, max-width is released, so the whole line always shows even if the browser
+   draws the glyphs a touch wider than the character unit (tiny sizes, minimum-font settings, other engines).
+   Every space inside the script is written as &nbsp;, so a code formatter has nowhere to break a line, and
+   any whitespace a formatter adds between the tags is collapsed instead of being drawn on the screen. */
+.crt-line{display:block;width:max-content;max-width:0;white-space:nowrap;overflow:hidden;border-right:.6ch solid transparent}
+.crt-t1{--n:15;animation:crt-type 0.45s steps(15) 4.2s forwards,crt-caret 0.57s step-end 4.2s,crt-done 1ms linear 4.66s forwards}
+.crt-t2{--n:23;animation:crt-type 0.69s steps(23) 5.15s forwards,crt-caret 0.81s step-end 5.15s,crt-done 1ms linear 5.85s forwards}
+.crt-t3{--n:9;animation:crt-type 0.27s steps(9) 6.1s forwards,crt-caret 0.39s step-end 6.1s,crt-done 1ms linear 6.38s forwards}
+.crt-t4{--n:36;animation:crt-type 1.08s steps(36) 6.5s forwards,crt-caret 1.2s step-end 6.5s,crt-done 1ms linear 7.59s forwards}
+.crt-t5{--n:44;animation:crt-type 1.32s steps(44) 7.7s forwards,crt-caret 1.44s step-end 7.7s,crt-done 1ms linear 9.03s forwards}
+.crt-t6{--n:39;animation:crt-type 1.17s steps(39) 9.15s forwards,crt-caret 1.29s step-end 9.15s,crt-done 1ms linear 10.33s forwards}
+.crt-t7{--n:1;animation:crt-type 0.06s steps(1) 10.45s forwards,crt-caret 0.18s step-end 10.45s,crt-done 1ms linear 10.52s forwards}
+.crt-t8{--n:17;animation:crt-type 0.51s steps(17) 10.8s forwards,crt-caret 0.63s step-end 10.8s,crt-done 1ms linear 11.32s forwards}
+.crt-t9{--n:20;animation:crt-type 0.6s steps(20) 11.45s forwards,crt-caret 0.72s step-end 11.45s,crt-done 1ms linear 12.06s forwards}
+.crt-t10{--n:39;animation:crt-type 1.17s steps(39) 12.2s forwards,crt-caret 1.29s step-end 12.2s,crt-done 1ms linear 13.38s forwards}
+.crt-t11{--n:3;animation:crt-type 0.24s steps(3) 13.7s forwards,crt-caret 0.36s step-end 13.7s,crt-done 1ms linear 13.95s forwards}
+.crt-t12{--n:18;animation:crt-type 0.54s steps(18) 14.3s forwards,crt-caret 0.66s step-end 14.3s,crt-done 1ms linear 14.85s forwards}
+.crt-gap{display:block}
+.crt-out{display:block;width:max-content;white-space:nowrap;opacity:0}
+.crt-o1{animation:crt-show 1ms linear 15.3s forwards}
+.crt-o2{animation:crt-show 1ms linear 16.2s forwards}
+.crt-o3{animation:crt-show 1ms linear 17.3s forwards}
+.crt-o4{animation:crt-show 1ms linear 18.2s forwards}
+.crt-flash{background:#f1f0e6;opacity:0;transform:scale(0,.006);animation:crt-power .6s ease-out 1.6s forwards}
+.crt-scan{background:repeating-linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0) 2px,rgba(0,0,0,.22) 2px,rgba(0,0,0,.22) 3px);box-shadow:inset 0 0 1.6cqw rgba(0,0,0,.85);pointer-events:none}
+@keyframes crt-show{to{opacity:1}}
+@keyframes crt-hide{to{opacity:0}}
+@keyframes crt-type{to{max-width:calc(var(--n) * 1ch)}}
+@keyframes crt-done{to{max-width:none}}
+@keyframes crt-caret{from,to{border-right-color:#dcdbd1}}
+@keyframes crt-power{0%{opacity:1;transform:scale(0,.006)}35%{opacity:1;transform:scale(1,.006)}70%{opacity:.85;transform:scale(1,1)}100%{opacity:0;transform:scale(1,1)}}
+
+/* The cooling fan: the blades are a separate round picture laid over the fan. It spins up from power-on (1.6s) to
+   3 turns a second by 4.1s. On the way the sharp blades cross-fade to a motion-blurred copy, which is what makes it
+   read as fast: a screen redraws 60 times a second, so sharp blades turned any faster would strobe or seem to run backwards. */
+.fan{position:absolute;left:61.548%;top:24.775%;width:6.126%;aspect-ratio:1;border-radius:50%;animation:fan-up 2.5s cubic-bezier(.6,0,.8,.5) 1.6s forwards,fan-run .3333s linear 4.1s infinite}
+.fan img{position:absolute;top:0;left:0;display:block;width:100%;height:100%}
+.fan-sharp{animation:crt-hide 1.1s ease-in 2.7s forwards}
+.fan-blur{opacity:0;animation:crt-show 1.1s ease-in 2.7s forwards}
+@keyframes fan-up{to{transform:rotate(1080deg)}}
+@keyframes fan-run{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){
+.hero-machine,.hero-outline,.hero-cursor,.fan,.fan-sharp,.fan-blur{animation:none}
+.type-word{width:auto;animation:none}
+.crt-flash,.crt-boot{display:none}
+.crt-lit,.crt-out{opacity:1;animation:none}
+.crt-line{max-width:none;animation:none}
+}
+</style>
+   </head>
+   <body>
+      <div
+         style="min-height: 100vh; box-sizing: border-box; background: #19180e; color: #dcdbd1; font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; display: flex; flex-direction: column; overflow: hidden">
+
+         <header
+            style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 24px; padding: 16px clamp(16px, 4vw, 56px)">
+            <a href="#top"
+               style="display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 500; letter-spacing: 0.02em"><span
+                  style="color: #e73d1d">~/</span>aarongonzales.dev</a>
+            <nav aria-label="Primary"
+               style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 14px">
+               <a href="experience.html"
+                  style="display: inline-flex; align-items: center; min-height: 44px">experience</a>
+               <a href="contact.html"
+                  style="display: inline-flex; align-items: center; min-height: 44px">contact</a>
+               <a href="https://github.com/InternalCog" target="_blank"
+                  rel="noopener"
+                  style="display: inline-flex; align-items: center; min-height: 44px">github</a>
+            </nav>
+         </header>
+
+         <main id="top"
+            style="flex-grow: 1; display: flex; flex-direction: column; padding: 8px clamp(16px, 4vw, 56px) 24px">
+
+            <div
+               style="display: grid; justify-items: center; align-items: start">
+               <h1 class="hero-word"
+                  style="grid-area: 1 / 1; margin: 0; width: 11ch; text-align: left; font-size: clamp(30px, 13.4vw, 210px); line-height: 1; font-weight: 800; letter-spacing: 0; white-space: nowrap; color: #dcdbd1"><span
+                     class="type-word">Automation</span><span
+                     class="hero-cursor" style="color: #e73d1d">_</span></h1>
+               <div class="hero-machine"
+                  style="grid-area: 1 / 1; position: relative; width: min(100%, 760px, max(240px, calc((100vh - 180px - clamp(18px, 8vw, 126px)) * 1.0883))); margin-top: clamp(18px, 8vw, 126px); margin-left: clamp(0px, 5vw, 72px)">
+                  <img src="assets/machine.webp"
+                     alt="A retro CRT computer fused with white pipes, wiring looms and exposed circuit boards, with a keyboard in front of it"
+                     style="display: block; width: 100%; aspect-ratio: 1812 / 1665; height: auto">
+                  <div class="fan" aria-hidden="true"><img class="fan-sharp"
+                        src="assets/fan.png" alt><img class="fan-blur"
+                        src="assets/fan-blur.png" alt></div>
+                  <div class="crt" aria-hidden="true">
+                     <div class="crt-lit"></div>
+                     <div class="crt-boot"><span
+                           class="crt-b1">GONZO-OS&nbsp;2.6</span><span
+                           class="crt-b2">mem&nbsp;check&nbsp;.........&nbsp;ok</span><span
+                           class="crt-b3">mount&nbsp;/home/aaron&nbsp;.&nbsp;ok</span><span
+                           class="crt-b4">starting&nbsp;shell</span></div>
+                     <div class="crt-code"><span
+                           class="crt-line crt-t1">$&nbsp;vim&nbsp;deploy.py</span><span
+                           class="crt-line crt-t2">import&nbsp;subprocess&nbsp;as&nbsp;sp</span><span
+                           class="crt-gap">&nbsp;</span><span
+                           class="crt-line crt-t3">STEPS&nbsp;=&nbsp;[</span><span
+                           class="crt-line crt-t4">&nbsp;&nbsp;&nbsp;&nbsp;"docker&nbsp;build&nbsp;-t&nbsp;site:latest&nbsp;.",</span><span
+                           class="crt-line crt-t5">&nbsp;&nbsp;&nbsp;&nbsp;"docker&nbsp;run&nbsp;--rm&nbsp;site:latest&nbsp;pytest&nbsp;-q",</span><span
+                           class="crt-line crt-t6">&nbsp;&nbsp;&nbsp;&nbsp;"docker&nbsp;push&nbsp;registry/site:latest",</span><span
+                           class="crt-line crt-t7">]</span><span
+                           class="crt-gap">&nbsp;</span><span
+                           class="crt-line crt-t8">for&nbsp;cmd&nbsp;in&nbsp;STEPS:</span><span
+                           class="crt-line crt-t9">&nbsp;&nbsp;&nbsp;&nbsp;print("-&gt;",&nbsp;cmd)</span><span
+                           class="crt-line crt-t10">&nbsp;&nbsp;&nbsp;&nbsp;sp.run(cmd,&nbsp;shell=True,&nbsp;check=True)</span><span
+                           class="crt-line crt-t11">:wq</span><span
+                           class="crt-line crt-t12">$&nbsp;python&nbsp;deploy.py</span><span
+                           class="crt-out crt-o1">-&gt;&nbsp;docker&nbsp;build&nbsp;-t&nbsp;site:latest&nbsp;.</span><span
+                           class="crt-out crt-o2">-&gt;&nbsp;docker&nbsp;run&nbsp;--rm&nbsp;site:latest&nbsp;pytest&nbsp;-q</span><span
+                           class="crt-out crt-o3">-&gt;&nbsp;docker&nbsp;push&nbsp;registry/site:latest</span><span
+                           class="crt-out crt-o4">deployed&nbsp;in&nbsp;41s<span
+                              class="hero-cursor"
+                              style="color: #e73d1d">_</span></span></div>
+                     <div class="crt-flash"></div>
+                     <div class="crt-scan"></div>
+                  </div>
+               </div>
+               <div class="hero-outline" aria-hidden="true"
+                  style="grid-area: 1 / 1; position: relative; pointer-events: none; width: 11ch; text-align: left; font-size: clamp(30px, 13.4vw, 210px); line-height: 1; font-weight: 800; letter-spacing: 0; white-space: nowrap; color: transparent; -webkit-text-stroke: 2px #19180e; opacity: 0.7"><span
+                     class="type-word">Automation</span><span
+                     style="visibility: hidden">_</span></div>
+            </div>
+
+            <div
+               style="margin-top: auto; padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px">
+               <p
+                  style="margin: 0; font-size: clamp(9px, 2.9vw, 14px); line-height: 1.6; white-space: nowrap; color: #a9a89c"><span
+                     style="color: rgb(231, 61, 29)">&gt;</span>&nbsp;BUILDING
+                  REAL SOLUTIONS FOR REAL HARD PROBLEMS</p>
+               <a href="experience.html"
+                  style="display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box; padding: 0 20px; border: 1px solid #dcdbd1; font-size: 14px; font-weight: 500">view
+                  experience</a>
+            </div>
+
+         </main>
+      </div>
+   </body>
+</html>

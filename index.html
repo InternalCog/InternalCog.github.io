@@ -23,9 +23,11 @@ a:focus-visible{outline:2px solid #e73d1d;outline-offset:4px}
 .hero-outline{animation:hero-fade 1s ease-out .9s both}
 .hero-cursor{animation:hero-blink 1.1s steps(1) infinite}
 
-/* The headline types itself out: the word's box widens one character at a time and the cursor rides its edge. */
-.type-word{display:inline-block;vertical-align:top;overflow:hidden;white-space:nowrap;width:0;padding:.15em 0 .25em;margin:-.15em 0 -.25em;animation:type-word .9s steps(10) .3s forwards}
-@keyframes type-word{to{width:10ch}}
+/* The headline types itself out: the word's box widens one character at a time and the cursor rides its edge.
+   When typing ends the limit is released, so the last letter can't be cut off if a browser draws the glyphs wider than 1ch. */
+.type-word{display:inline-block;vertical-align:top;overflow:hidden;white-space:nowrap;width:max-content;max-width:0;padding:.15em 0 .25em;margin:-.15em 0 -.25em;animation:type-word .9s steps(10) .3s forwards,type-done 1ms linear 1.21s forwards}
+@keyframes type-word{to{max-width:10ch}}
+@keyframes type-done{to{max-width:none}}
 
 /* The monitor: a live screen laid over the picture's own screen.
    Timeline: dark until 1.6s, power-on flash, boot text 2.4s to 4s, deploy.py typed from 4.2s, run at 14.3s, done by 18.2s. */
@@ -84,7 +86,7 @@ a:focus-visible{outline:2px solid #e73d1d;outline-offset:4px}
 
 @media (prefers-reduced-motion:reduce){
 .hero-machine,.hero-outline,.hero-cursor,.fan,.fan-sharp,.fan-blur{animation:none}
-.type-word{width:auto;animation:none}
+.type-word{max-width:none;animation:none}
 .crt-flash,.crt-boot{display:none}
 .crt-lit,.crt-out{opacity:1;animation:none}
 .crt-line{max-width:none;animation:none}

@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,91 +13,21 @@
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&amp;display=swap">
         <style>
-        body {
-            margin: 0;
-            background: #19180e
-        }
-
-        a {
-            color: #dcdbd1;
-            text-decoration: none
-        }
-
-        a:hover {
-            color: #ffffff
-        }
-
-        a:focus-visible {
-            outline: 2px solid #e73d1d;
-            outline-offset: 4px
-        }
-
-        @keyframes type-word {
-            to {
-                width: 7ch
-            }
-        }
-
-        @keyframes page-fade {
-            from {
-                opacity: 0
-            }
-
-            to {
-                opacity: 1
-            }
-        }
-
-        @keyframes page-blink {
-
-            0%,
-            49% {
-                opacity: 1
-            }
-
-            50%,
-            100% {
-                opacity: 0
-            }
-        }
-
-        .type-word {
-            display: inline-block;
-            vertical-align: top;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 0;
-            padding: .15em 0 .25em;
-            margin: -.15em 0 -.25em;
-            animation: type-word .65s steps(7) .3s forwards
-        }
-
-        @media (prefers-reduced-motion:reduce) {
-            .type-word {
-                width: auto;
-                animation: none
-            }
-        }
-
-        .page-machine {
-            animation: page-fade 1.2s ease-out .2s both
-        }
-
-        .page-cursor {
-            animation: page-blink 1.1s steps(1) infinite
-        }
-
-        @media (prefers-reduced-motion:reduce) {
-
-            .page-word,
-            .page-machine,
-            .page-cursor {
-                animation: none
-            }
-        }
-    </style>
+body{margin:0;background:#19180e}
+a{color:#dcdbd1;text-decoration:none}
+a:hover{color:#ffffff}
+a:focus-visible{outline:2px solid #e73d1d;outline-offset:4px}
+@keyframes type-word{to{max-width:7ch}}
+@keyframes type-done{to{max-width:none}}
+@keyframes page-fade{from{opacity:0}to{opacity:1}}
+@keyframes page-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.type-word{display:inline-block;vertical-align:top;overflow:hidden;white-space:nowrap;width:max-content;max-width:0;padding:.15em 0 .25em;margin:-.15em 0 -.25em;animation:type-word .65s steps(7) .3s forwards,type-done 1ms linear .96s forwards}
+@media (prefers-reduced-motion:reduce){.type-word{max-width:none;animation:none}}
+.page-machine{animation:page-fade 1.2s ease-out .2s both}
+.page-cursor{animation:page-blink 1.1s steps(1) infinite}
+@media (prefers-reduced-motion:reduce){.page-word,.page-machine,.page-cursor{animation:none}}
+</style>
     </head>
-
     <body>
         <div
             style="min-height: 100vh; box-sizing: border-box; background: #19180e; color: #dcdbd1; font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; display: flex; flex-direction: column; overflow: hidden">
@@ -128,20 +57,19 @@
 
                     <div style="flex: 999 1 520px; min-width: 0">
                         <h1 class="page-word"
-                            style="margin: 0; font-size: clamp(30px, 9vw, 132px); line-height: 1; font-weight: 800; letter-spacing: 0; white-space: nowrap">
-                            <span class="type-word">Contact</span><span
+                            style="margin: 0; font-size: clamp(30px, 9vw, 132px); line-height: 1; font-weight: 800; letter-spacing: 0; white-space: nowrap"><span
+                                class="type-word">Contact</span><span
                                 class="page-cursor"
-                                style="color: #e73d1d">_</span>
-                        </h1>
+                                style="color: #e73d1d">_</span></h1>
                         <p
-                            style="margin: 28px 0 40px; max-width: 54ch; font-size: 16px; line-height: 1.7; color: #a9a89c">
-                            <span aria-hidden="true"
-                                style="color: rgb(231, 61, 29)">&gt;</span>&nbsp;Let
-                            me know how I can fit into your team:</p>
+                            style="margin: 28px 0 40px; max-width: 54ch; font-size: 16px; line-height: 1.7; color: #a9a89c"><span
+                                aria-hidden="true"
+                                style="color: rgb(231, 61, 29)">&gt;</span>&nbsp;Find
+                            out if my skills are a good fit for you:</p>
 
                         <p aria-hidden="true"
-                            style="margin: 0 0 8px; font-size: 14px; line-height: 1.6; color: #a9a89c">
-                            <span style="color: #e73d1d">$</span> contact
+                            style="margin: 0 0 8px; font-size: 14px; line-height: 1.6; color: #a9a89c"><span
+                                style="color: #e73d1d">$</span> contact
                             --list</p>
                         <ul
                             style="margin: 0; padding: 0; list-style: none; border-top: 1px solid #34332a">
@@ -156,18 +84,14 @@
                             </li>
                             <li style="border-bottom: 1px solid #34332a"><a
                                     href="https://www.linkedin.com/in/aaron-w-gonzales/"
-                                    target="_blank"
                                     style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 20px 0px"><span
                                         style="flex: 0 0 120px; font-size: 14px; color: rgb(169, 168, 156)">linkedin</span><span
-                                        style="flex: 1 1 260px; min-width: 0px; font-size: clamp(17px, 2vw, 26px); font-weight: 500; overflow-wrap: anywhere">linkedin.com/in/aaron-w-gonzales/</span></a>
-                            </li>
+                                        style="flex: 1 1 260px; min-width: 0px; font-size: clamp(17px, 2vw, 26px); font-weight: 500; overflow-wrap: anywhere">linkedin.com/in/aaron-w-gonzales/</span></a></li>
                             <li style="border-bottom: 1px solid #34332a"><a
                                     href="https://github.com/InternalCog"
-                                    target="_blank"
                                     style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 32px; padding: 20px 0px"><span
                                         style="flex: 0 0 120px; font-size: 14px; color: rgb(169, 168, 156)">github</span><span
-                                        style="flex: 1 1 260px; min-width: 0px; font-size: clamp(17px, 2vw, 26px); font-weight: 500; overflow-wrap: anywhere">github.com/InternalCog</span></a>
-                            </li>
+                                        style="flex: 1 1 260px; min-width: 0px; font-size: clamp(17px, 2vw, 26px); font-weight: 500; overflow-wrap: anywhere">github.com/InternalCog</span></a></li>
                         </ul>
 
                         <dl
@@ -187,8 +111,7 @@
                                     style="flex: 0 0 120px; color: #a9a89c">status</dt>
                                 <dd
                                     style="flex: 1 1 260px; min-width: 0; margin: 0">Employed,
-                                    open to offers starting
-                                    August 2027</dd>
+                                    open to offers starting August 2027</dd>
                             </div>
                         </dl>
                     </div>
@@ -197,13 +120,12 @@
 
                 <footer style="margin-top: auto; padding-top: 28px">
                     <p
-                        style="margin: 0; padding-top: 28px; border-top: 1px solid #34332a; max-width: none; font-size: 13px; line-height: 1.6; color: #a9a89c">
-                        Views are my own and do not represent the U.S. Air Force
-                        or the U.S. Government.</p>
+                        style="margin: 0; padding-top: 28px; border-top: 1px solid #34332a; max-width: none; font-size: 13px; line-height: 1.6; color: #a9a89c">Views
+                        are my own and do not represent the U.S. Air Force or
+                        the U.S. Government.</p>
                 </footer>
 
             </main>
         </div>
     </body>
-
 </html>
